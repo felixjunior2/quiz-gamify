@@ -1,264 +1,92 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configuração da Atividade</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity Configuration</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-50">
-    <div class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-md mx-auto bg-white rounded-lg shadow-lg">
-            <div class="px-6 py-8">
-                <h2 class="text-2xl font-bold text-center text-gray-900 mb-8">
-                    Configuração da Atividade
-                </h2>
-                
-                <form class="space-y-6" id="configForm">
-                    <!-- Number of Questions -->
-                    <div>
-                        <label for="num_questions" class="block text-sm font-medium text-gray-700">
-                            Número de Questões
-                        </label>
-                        <select id="num_questions" name="num_questions" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 rounded-md">
-                            <option value="">Selecione</option>
-                            <option value="5">5 questões</option>
-                            <option value="10">10 questões</option>
-                            <option value="15">15 questões</option>
-                            <option value="20">20 questões</option>
-                            <option value="30">30 questões</option>
-                            <option value="40">40 questões</option>
-                            <option value="50">50 questões</option>
-                        </select>
-                    </div>
+<body>
+  <div class="container">
+    <h1 class="heading">Configure Your Activity</h1>
 
-                    <!-- Category -->
-                    <div>
-                        <label for="category" class="block text-sm font-medium text-gray-700">
-                            Categoria
-                        </label>
-                        <select id="category" name="category" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 rounded-md">
-                            <option value="">Selecione</option>
-                            <option value="general knowledge">Conhecimento Geral</option>
-                            <option value="books">Livros</option>
-                            <option value="films">Filmes</option>
-                            <option value="science">Ciência</option>
-                            <option value="math">Matemática</option>
-                        </select>
-                    </div>
+    <!-- Formulário para Configuração de Parâmetros -->
+    <form id="config-form">
+      <fieldset>
+        <legend>Activity Parameters</legend>
+        
+        <label for="num-questions">Number of Questions:</label>
+        <select id="num-questions" name="num_questions">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+          <option value="30">30</option>
+          <option value="40">40</option>
+          <option value="50">50</option>
+        </select>
 
-                    <!-- Difficulty -->
-                    <div>
-                        <label for="difficulty" class="block text-sm font-medium text-gray-700">
-                            Dificuldade
-                        </label>
-                        <select id="difficulty" name="difficulty" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 rounded-md">
-                            <option value="">Selecione</option>
-                            <option value="easy">Fácil</option>
-                            <option value="medium">Médio</option>
-                            <option value="hard">Difícil</option>
-                        </select>
-                    </div>
+        <label for="category">Category:</label>
+        <select id="category" name="category">
+          <option value="">Any Category</option>
+          <option value="general knowledge">General Knowledge</option>
+          <option value="books">Books</option>
+          <option value="films">Films</option>
+          <option value="science">Science</option>
+          <option value="math">Math</option>
+        </select>
 
-                    <!-- Time per Question -->
-                    <div>
-                        <label for="time" class="block text-sm font-medium text-gray-700">
-                            Tempo por Questão (segundos)
-                        </label>
-                        <select id="time" name="time" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 rounded-md">
-                            <option value="">Selecione</option>
-                            <option value="10">10 segundos</option>
-                            <option value="15">15 segundos</option>
-                            <option value="20">20 segundos</option>
-                            <option value="25">25 segundos</option>
-                            <option value="30">30 segundos</option>
-                            <option value="60">60 segundos</option>
-                        </select>
-                    </div>
+        <label for="difficulty">Difficulty:</label>
+        <select id="difficulty" name="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
 
-                    <!-- Analytics Section -->
-                    <div class="mt-8 pt-6 border-t border-gray-200">
-                        <h3 class="text-lg font-medium text-gray-900 mb-4">Análises Disponíveis</h3>
-                        <div class="space-y-3">
-                            <div class="flex items-center">
-                                <input type="checkbox" id="access_analytics" name="analytics" value="access" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
-                                <label for="access_analytics" class="ml-3 text-sm text-gray-700">
-                                    Acesso à atividade
-                                </label>
-                            </div>
-                            <div class="flex items-center">
-                                <input type="checkbox" id="score_analytics" name="analytics" value="score" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
-                                <label for="score_analytics" class="ml-3 text-sm text-gray-700">
-                                    Pontuação total
-                                </label>
-                            </div>
-                            <div class="flex items-center">
-                                <input type="checkbox" id="time_analytics" name="analytics" value="time" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
-                                <label for="time_analytics" class="ml-3 text-sm text-gray-700">
-                                    Tempo total de realização
-                                </label>
-                            </div>
-                            <div class="flex items-center">
-                                <input type="checkbox" id="percentage_analytics" name="analytics" value="percentage" class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
-                                <label for="percentage_analytics" class="ml-3 text-sm text-gray-700">
-                                    Percentagem de respostas corretas
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+        <label for="time">Time per Question (seconds):</label>
+        <select id="time" name="time">
+          <option value="10">10 seconds</option>
+          <option value="15">15 seconds</option>
+          <option value="20">20 seconds</option>
+          <option value="30">30 seconds</option>
+        </select>
+      </fieldset>
+    </form>
 
-                    <!-- Submit Button -->
-                    <div class="pt-6">
-                        <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                            Salvar Configurações
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    <!-- Lista de Analytics -->
+    <fieldset>
+      <legend>Available Analytics</legend>
+      <ul id="analytics-list">
+        <li><b>Acedeu à atividade:</b> Boolean</li>
+        <li><b>Pontuação total:</b> Numeric</li>
+        <li><b>Tempo total de realização:</b> Numeric</li>
+        <li><b>Percentagem de respostas corretas:</b> Percentage</li>
+      </ul>
+    </fieldset>
 
-    <script>
-        async function saveConfiguration(config) {
-            try {
-                // Primeira tentativa: salvando via API
-                try {
-                    const response = await fetch('/api/save-config', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(config)
-                    });
+    <!-- Visualização de Analytics -->
+    <fieldset>
+      <legend>Activity Analytics</legend>
+      <div id="analytics-data">
+        <p><b>Student ID:</b> std_1</p>
+        <p><b>Quantitative Analytics:</b></p>
+        <ul>
+          <li>Acedeu à atividade: True</li>
+          <li>Pontuação total: 7</li>
+          <li>Percentagem de respostas corretas: 70%</li>
+        </ul>
+        <p><b>Qualitative Analytics:</b></p>
+        <ul>
+          <li><a href="https://url-analytics/perfil/std_1">Perfil de Desempenho</a></li>
+        </ul>
+      </div>
+    </fieldset>
+  </div>
 
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-
-                    const data = await response.json();
-                    return data;
-                } catch (apiError) {
-                    console.warn('API save failed, falling back to file download:', apiError);
-                    
-                    // Fallback: Download como arquivo JSON
-                    const blob = new Blob([JSON.stringify(config, null, 2)], { type: 'application/json' });
-                    const url = window.URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = 'activity_config.json';
-                    document.body.appendChild(a);
-                    a.click();
-                    window.URL.revokeObjectURL(url);
-                    document.body.removeChild(a);
-                    
-                    return { success: true, message: 'Configurações salvas como arquivo JSON' };
-                }
-            } catch (error) {
-                console.error('Error in saveConfiguration:', error);
-                throw error;
-            }
-        }
-
-        function showNotification(message, isError = false) {
-            const notification = document.createElement('div');
-            notification.className = `fixed top-4 right-4 p-4 rounded-lg shadow-lg ${
-                isError ? 'bg-red-500' : 'bg-green-500'
-            } text-white max-w-md`;
-            notification.textContent = message;
-            document.body.appendChild(notification);
-
-            setTimeout(() => {
-                notification.remove();
-            }, 5000);
-        }
-
-        function validateForm(formData) {
-            const requiredFields = ['num_questions', 'category', 'difficulty', 'time'];
-            const errors = [];
-
-            for (const field of requiredFields) {
-                if (!formData[field]) {
-                    errors.push(`O campo ${field.replace('_', ' ')} é obrigatório`);
-                }
-            }
-
-            if (formData.analytics.length === 0) {
-                errors.push('Selecione pelo menos uma opção de análise');
-            }
-
-            return errors;
-        }
-
-        document.getElementById('configForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const formData = {
-                num_questions: document.getElementById('num_questions').value,
-                category: document.getElementById('category').value,
-                difficulty: document.getElementById('difficulty').value,
-                time: document.getElementById('time').value,
-                analytics: Array.from(document.querySelectorAll('input[name="analytics"]:checked')).map(cb => cb.value)
-            };
-
-            // Validate form
-            const errors = validateForm(formData);
-            if (errors.length > 0) {
-                showNotification(errors.join('\n'), true);
-                return;
-            }
-
-            try {
-                // Disable submit button and show loading state
-                const submitButton = this.querySelector('button[type="submit"]');
-                const originalText = submitButton.innerHTML;
-                submitButton.disabled = true;
-                submitButton.innerHTML = `
-                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    Salvando...
-                `;
-
-                try {
-                    // Send data to backend
-                    const result = await saveConfiguration(formData);
-                    console.log('Configuration saved:', result);
-                    
-                    if (result.message && result.message.includes('arquivo JSON')) {
-                        showNotification('Configurações baixadas como arquivo JSON!');
-                    } else {
-                        showNotification('Configurações salvas com sucesso!');
-                    }
-                } catch (error) {
-                    console.error('Save error:', error);
-                    showNotification('Erro ao salvar. Tentando baixar como arquivo...', true);
-                    
-                    // Última tentativa: Forçar download do arquivo
-                    const blob = new Blob([JSON.stringify(formData, null, 2)], { type: 'application/json' });
-                    const url = window.URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = 'activity_config.json';
-                    document.body.appendChild(a);
-                    a.click();
-                    window.URL.revokeObjectURL(url);
-                    document.body.removeChild(a);
-                    
-                    showNotification('Configurações salvas como arquivo JSON');
-                }
-            } catch (error) {
-                console.error('Critical error:', error);
-                showNotification('Erro crítico ao salvar configurações. Verifique o console.', true);
-            } finally {
-                // Reset submit button
-                submitButton.disabled = false;
-                submitButton.innerHTML = originalText;
-            }
-        });
-    </script>
+  <script>
+    // Este script pode ser usado para buscar dinamicamente os dados dos JSONs via endpoints
+    // ou manipular interativamente a configuração.
+    console.log("Página de Configuração Carregada");
+  </script>
 </body>
 </html>
-
-
-
